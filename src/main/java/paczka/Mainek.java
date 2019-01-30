@@ -7,14 +7,14 @@ import java.io.FileNotFoundException;
 public class Mainek {
 
     public static void main(String[] args) {
-/*        Simpletron simpletron = new Simpletron();
+        Simpletron simpletron = new Simpletron();
         try {
-            simpletron.runSimulator("C:\\Users\\rafal.zasada\\Desktop\\mojeProgramyIntelliJ\\Simpletron\\src\\main\\java\\dodajDwieLiczby.txt");
+            simpletron.runSimulator("C:\\Users\\rafal.zasada\\Desktop\\mojeProgramyIntelliJ\\Simpletron\\src\\main\\java\\test.txt");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }*/
+        }
 
-        String s = Integer.toString(4)+ Integer.toString(5);
+/*        String s = Integer.toString(4)+ Integer.toString(5);
         int a = Integer.valueOf(s);
         System.out.println((char) a);
         char b = '-';
@@ -23,6 +23,6 @@ public class Mainek {
         char[] tab = " ".toCharArray();
         for(char c : tab) {
             System.out.println((int) c);
-        }
+        }*/
     }
 }

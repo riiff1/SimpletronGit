@@ -22,7 +22,11 @@ public enum OperationCode {
     BRANCH("28"),
     BRANCH_NEG("29"),
     BRANCH_ZERO("2A"),
-    HALT("2B");
+    HALT("2B"),
+
+    //Operacje tekstowe 50
+    READ_SENTENCES("32"),
+    WRITE_SENTENCES("33");
 
     private String hexValue;
 

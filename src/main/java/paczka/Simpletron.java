@@ -3,8 +3,7 @@ package paczka;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
-import static paczka.OperationCode.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Simpletron {
 
@@ -29,7 +28,7 @@ public class Simpletron {
         int memoryPointer = 0;
 
         while (in.hasNext()) {
-            submittedInstruction = in.nextInt ();
+            submittedInstruction = in.nextInt();
             System.out.printf ("%d\t%s\t%d\n", memoryPointer, "?", submittedInstruction);
             if ( memoryPointer >= memory.length ) {
                 System.out.println("Wiecej komend niz pamieci, zmien plik: " + filePath);
@@ -132,6 +131,23 @@ public class Simpletron {
                 dumpTheCore ();
                 System.out.printf ("\n%s\n", "The program has ended...");
                 System.exit ( 0 );
+                break;
+
+            case READ_SENTENCES:
+                Scanner inputString = new Scanner ( System.in );
+                System.out.print ( "Please Enter a whole number (positive or negative): " );
+                String s = inputString.nextLine();
+                memory[operands] = s.length();
+                AtomicInteger count = new AtomicInteger(1);
+                s.chars().forEach(i -> {memory[operands + count.get()] = i; count.getAndIncrement();});
+
+                break;
+            case WRITE_SENTENCES:
+                char[] chars = new char[memory[operands]];
+                for(int i= 1; i<= memory [ operands]; i++) {
+                    chars[i-1] = (char) memory[operands+i];
+                }
+                System.out.println ("String is " + String.valueOf(chars) );
                 break;
         }
 
